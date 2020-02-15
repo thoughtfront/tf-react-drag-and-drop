@@ -2,7 +2,7 @@
   "name": "@tf/react-drag-and-drop",
   "version": "0.0.1",
   "description": "Drag and drop functionality for react.js",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "build": "npm run build:lib",
     "build:lib": "./node_modules/.bin/babel src --out-dir lib --presets @babel/preset-env,@babel/preset-react --plugins @babel/plugin-proposal-class-properties",
