@@ -1,0 +1,49 @@
+{
+  "name": "@tf/react-drag-and-drop",
+  "version": "0.0.1",
+  "description": "Drag and drop functionality for react.js",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build:lib",
+    "build:lib": "./node_modules/.bin/babel src --out-dir lib --presets @babel/preset-env,@babel/preset-react --plugins @babel/plugin-proposal-class-properties",
+    "build-storybook": "build-storybook",
+    "start": "npm run storybook",
+    "storybook": "start-storybook -p 9009",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thoughtfront/tf-react-drag-and-drop.git"
+  },
+  "keywords": [
+    "drag",
+    "drop",
+    "react",
+    "tf",
+    "thoughtfront"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thoughtfront/tf-react-drag-and-drop/issues"
+  },
+  "homepage": "https://github.com/thoughtfront/tf-react-drag-and-drop#readme",
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-scripts": "^3.4.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-react": "^7.8.3",
+    "@storybook/addon-actions": "^5.3.13",
+    "@storybook/addon-links": "^5.3.13",
+    "@storybook/addons": "^5.3.13",
+    "@storybook/preset-create-react-app": "^1.5.2",
+    "@storybook/react": "^5.3.13",
+    "babel-loader": "^8.0.6"
+  }
+}
