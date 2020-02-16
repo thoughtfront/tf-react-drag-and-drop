@@ -28,17 +28,17 @@ const Test = () => (
             style={dropContainerStyles}
             dropGroup='Group1'
         >
-            <DragItem>
+            <DragItem uniqueId={'1'}>
                 <div style={dragItemStyles}>
                     TEST
                 </div>
             </DragItem>
-            <DragItem>
+            <DragItem uniqueId={'2'}>
                 <div style={dragItemStyles}>
                     Works
                 </div>
             </DragItem>
-            <DragItem>
+            <DragItem uniqueId={'3'}>
                 <div style={dragItemStyles}>
                     Dude
                 </div>
@@ -48,17 +48,17 @@ const Test = () => (
             style={dropContainerStyles}
             dropGroup='Group2'
         >
-            <DragItem>
+            <DragItem uniqueId={'4'}>
                 <div style={dragItemStyles}>
                     Second
                 </div>
             </DragItem>
-            <DragItem>
+            <DragItem uniqueId={'5'}>
                 <div style={dragItemStyles}>
                     Group
                 </div>
             </DragItem>
-            <DragItem>
+            <DragItem uniqueId={'6'}>
                 <div style={dragItemStyles}>
                     Fool
                 </div>

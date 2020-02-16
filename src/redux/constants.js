@@ -1,3 +1,4 @@
 export default {
     REGISTER_GROUP: 'REGISTER_GROUP',
+    REGISTER_ITEM: 'REGISTER_ITEM',
 }

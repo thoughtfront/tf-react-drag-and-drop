@@ -7,14 +7,16 @@ import * as actions from '../../redux/actions';
 
 const mapDispatchToProps = dispatch => ({
     registerGroup: groupName => dispatch(actions.registerGroup(groupName)),
+    registerItem: (item, groupName) => dispatch(actions.registerItem(item, groupName)),
 });
 
 class DropContainer extends React.Component {
     constructor(props) {
         super(props);
-        const { dropGroup, registerGroup, children } = props;
-        // console.warn('children', children);
+        const { dropGroup, registerGroup, registerItem, children } = props;
+        console.warn('children', children);
         registerGroup(dropGroup);
+        children.forEach( child => registerItem(child, dropGroup));
     }
 
     onDragOver = event => {
