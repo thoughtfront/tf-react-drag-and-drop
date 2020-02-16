@@ -29,11 +29,6 @@ class DropGroup extends React.Component {
         else registerItem(children, groupName);
     }
 
-    componentDidMount() {
-        // const children = React.Children.toArray(this.props.children);
-        // console.warn('child array',children);
-    }
-
     componentWillUnmount() {
         const { clearGroup, groupName } = this.props;
         clearGroup(groupName);
@@ -87,7 +82,4 @@ DropGroup.propTypes = {
     groupName: PropTypes.string.isRequired,
 }
 
-// export default connect(null, mapDispatchToProps)(
-//     withStore(DropGroup)
-// );
 export default withStore(connect(mapStateToProps, mapDispatchToProps)(DropGroup));
