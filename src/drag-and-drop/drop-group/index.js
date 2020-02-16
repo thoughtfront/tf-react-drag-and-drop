@@ -9,6 +9,7 @@ const mapDispatchToProps = dispatch => ({
     registerItem: (item, groupName) => dispatch(actions.registerItem(item, groupName)),
     clearGroup: groupName => dispatch(actions.clearGroup(groupName)),
     setDraggingItem: (item, groupName) => dispatch(actions.setDraggingItem(item, groupName)),
+    dropInGroup: groupName => dispatch(actions.dropInGroup(groupName)),
 });
 
 const mapStateToProps = (state, props) => {
@@ -48,13 +49,14 @@ class DropGroup extends React.Component {
     }
 
     onDrop = (event, cat) => {
-        const { groupName } = this.props;
-        console.warn('drop in',groupName);
+        const { dropInGroup, groupName } = this.props;
+        dropInGroup(groupName);
     }
 
-    getRenderedChildren = children => {
+    getRenderedChildren = () => {
+        const { registeredItems, style } = this.props;
         // Map children to new components containing the onDragStart callback
-        return !!children ? React.Children.map(children, child => {
+        return !!registeredItems ? React.Children.map(registeredItems, child => {
             return {
                 ...child,
                 props: {
@@ -66,13 +68,9 @@ class DropGroup extends React.Component {
     }
 
     render() {
-        const { registeredItems, style } = this.props;
-        // const types = registeredItems.map( child => child.type);
-        // console.warn('children',children);
-        // console.warn('types',types);
-        // console.warn('instance', children[0].type.name === 'DragItem');
-        const renderedChildren = this.getRenderedChildren(registeredItems);
-        // console.warn('renderedChildren', renderedChildren);
+        const { style } = this.props;
+        const renderedChildren = this.getRenderedChildren();
+
         return (
             <div
                 style={!!style ? style : {}}

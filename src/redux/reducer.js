@@ -74,6 +74,33 @@ export default (state=initState, action) => {
             }
         }
 
+        case constants.DROP_IN_GROUP: {
+            const { dropGroup } = action.payload;
+            const { originalGroup, draggingItem, groupItems } = state;
+
+            // For now if original group and drop gorup are the same then ignore
+            if (dropGroup === originalGroup) return {...state}
+
+            const originalItemIndex = groupItems[originalGroup].indexOf(draggingItem);
+
+            return {
+                ...state,
+                groupItems: {
+                    ...groupItems,
+                    [originalGroup]: [
+                        ...groupItems[originalGroup].slice(0,originalItemIndex),
+                        ...groupItems[originalGroup].slice(originalItemIndex+1),
+                    ],
+                    [dropGroup]: [
+                        ...groupItems[dropGroup],
+                        draggingItem,
+                    ],
+                },
+                draggingItem: null,
+                originalGroup: null,
+            }
+        }
+
         default: return {...state};
     }
 

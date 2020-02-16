@@ -24,4 +24,11 @@ export const setDraggingItem = (draggingItem=null, originalGroup=null) => ({
         draggingItem,
         originalGroup,
     }
-})
+});
+
+export const dropInGroup = dropGroup => ({
+    type: constants.DROP_IN_GROUP,
+    payload: {
+        dropGroup,
+    }
+});
