@@ -12,3 +12,8 @@ export const registerItem = (item, groupName) => ({
         groupName,
     },
 });
+
+export const clearGroup = groupName => ({
+    type: constants.CLEAR_REGISTERED_GROUP,
+    payload: groupName,
+})

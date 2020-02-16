@@ -8,7 +8,16 @@ import * as actions from '../../redux/actions';
 const mapDispatchToProps = dispatch => ({
     registerGroup: groupName => dispatch(actions.registerGroup(groupName)),
     registerItem: (item, groupName) => dispatch(actions.registerItem(item, groupName)),
+    clearGroup: groupName => dispatch(actions.clearGroup(groupName)),
 });
+
+const mapStateToProps = (state, props) => {
+    const { groupItems } = state;
+    const { dropGroup } = props;
+    return {
+        registeredItems: groupItems[dropGroup],
+    }
+};
 
 class DropContainer extends React.Component {
     constructor(props) {
@@ -17,6 +26,11 @@ class DropContainer extends React.Component {
         console.warn('children', children);
         registerGroup(dropGroup);
         children.forEach( child => registerItem(child, dropGroup));
+    }
+
+    componentWillUnmount() {
+        const { clearGroup, dropGroup } = this.props;
+        clearGroup(dropGroup);
     }
 
     onDragOver = event => {
@@ -29,8 +43,8 @@ class DropContainer extends React.Component {
     }
 
     render() {
-        const { children, style } = this.props;
-        const types = children.map( child => child.type);
+        const { registeredItems, style } = this.props;
+        // const types = registeredItems.map( child => child.type);
         // console.warn('children',children);
         // console.warn('types',types);
         // console.warn('instance', children[0].type.name === 'DragItem');
@@ -40,7 +54,7 @@ class DropContainer extends React.Component {
                 onDragOver={ event => this.onDragOver(event) }
                 onDrop={ event => this.onDrop(event) }
             >
-                {children}
+                {registeredItems}
             </div>
         )
     }
@@ -54,4 +68,4 @@ DropContainer.propTypes = {
 // export default connect(null, mapDispatchToProps)(
 //     withStore(DropContainer)
 // );
-export default withStore(connect(null, mapDispatchToProps)(DropContainer));
+export default withStore(connect(mapStateToProps, mapDispatchToProps)(DropContainer));

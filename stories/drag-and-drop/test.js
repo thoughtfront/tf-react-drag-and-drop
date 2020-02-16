@@ -60,7 +60,12 @@ const Test = () => (
             </DragItem>
             <DragItem uniqueId={'6'}>
                 <div style={dragItemStyles}>
-                    Fool
+                    Foolish
+                </div>
+            </DragItem>
+            <DragItem uniqueId={'7'}>
+                <div style={dragItemStyles}>
+                    Person
                 </div>
             </DragItem>
         </DropContainer>
