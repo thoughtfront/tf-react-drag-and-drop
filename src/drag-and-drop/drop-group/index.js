@@ -13,10 +13,11 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = (state, props) => {
-    const { groupItems } = state;
+    const { groupItems, draggingItem } = state;
     const { groupName } = props;
     return {
         registeredItems: groupItems[groupName],
+        draggingItem,
     }
 };
 
@@ -44,8 +45,12 @@ class DropGroup extends React.Component {
     }
 
     onDrop = (event, cat) => {
-        const { dropInGroup, groupName } = this.props;
+        const { dropInGroup, groupName, draggingItem } = this.props;
         dropInGroup(groupName);
+        if (!!draggingItem) {
+            const { props: { uniqueId, onGroupChange } } = draggingItem;
+            onGroupChange(uniqueId, groupName);
+        }
     }
 
     getRenderedChildren = () => {

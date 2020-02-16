@@ -11,6 +11,8 @@ const wrapper = {
 const dropContainerStyles = {
     width: '300px',
     border: '1px solid black',
+    height: 'fit-content',
+    minHeight: '100px',
 }
 
 const dragItemStyles = {
@@ -19,7 +21,11 @@ const dragItemStyles = {
     alignItems: 'center',
     justifyContent: 'center',
     border: '1px solid grey',
-    margin: '5px',
+    margin: '25px 25px',
+}
+
+const itemGroupChange = (id, group) => {
+    console.warn(`item ${id} moved to ${group}`);
 }
 
 const Test = () => (
@@ -28,17 +34,17 @@ const Test = () => (
             style={dropContainerStyles}
             groupName='Group1'
         >
-            <DragItem uniqueId={'1'}>
+            <DragItem uniqueId={'1'} onGroupChange={itemGroupChange}>
                 <div style={dragItemStyles}>
                     TEST
                 </div>
             </DragItem>
-            <DragItem uniqueId={'2'}>
+            <DragItem uniqueId={'2'} onGroupChange={itemGroupChange}>
                 <div style={dragItemStyles}>
                     Works
                 </div>
             </DragItem>
-            <DragItem uniqueId={'3'}>
+            <DragItem uniqueId={'3'} onGroupChange={itemGroupChange}>
                 <div style={dragItemStyles}>
                     Dude
                 </div>
@@ -48,22 +54,22 @@ const Test = () => (
             style={dropContainerStyles}
             groupName='Group2'
         >
-            <DragItem uniqueId={'4'}>
+            <DragItem uniqueId={'4'} onGroupChange={itemGroupChange}>
                 <div style={dragItemStyles}>
                     Second
                 </div>
             </DragItem>
-            <DragItem uniqueId={'5'}>
+            <DragItem uniqueId={'5'} onGroupChange={itemGroupChange}>
                 <div style={dragItemStyles}>
                     Group
                 </div>
             </DragItem>
-            <DragItem uniqueId={'6'}>
+            <DragItem uniqueId={'6'} onGroupChange={itemGroupChange}>
                 <div style={dragItemStyles}>
                     Foolish
                 </div>
             </DragItem>
-            <DragItem uniqueId={'7'}>
+            <DragItem uniqueId={'7'} onGroupChange={itemGroupChange}>
                 <div style={dragItemStyles}>
                     Person
                 </div>
@@ -73,7 +79,7 @@ const Test = () => (
             style={dropContainerStyles}
             groupName='Group3'
         >
-            <DragItem uniqueId={'1'}>
+            <DragItem uniqueId={'8'} onGroupChange={itemGroupChange}>
                 <div style={dragItemStyles}>
                     ONLY ONE
                 </div>

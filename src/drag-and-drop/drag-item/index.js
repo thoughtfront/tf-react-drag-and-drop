@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class DragItem extends React.Component {
+
     render() {
-        const { children, style, test, onDragStart } = this.props;
+        const { children, style, test, onDragStart, uniqueId } = this.props;
 
         return (
             <div
-                onDragStart={ event => onDragStart(event)}
+                onDragStart={ event => onDragStart(event) }
                 draggable
             >
                 {children}
