@@ -8,7 +8,7 @@ class DragItem extends React.Component {
     }
 
     render() {
-        const { children } = this.props;
+        const { children, style} = this.props;
         return (
             <div
                 onDragStart={ event => this.onDragStart(event)}
