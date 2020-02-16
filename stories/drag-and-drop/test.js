@@ -22,6 +22,16 @@ const dragItemStyles = {
     justifyContent: 'center',
     border: '1px solid grey',
     margin: '25px 25px',
+    cursor: 'pointer',
+}
+
+const itemStyles = {
+    minHeight: '100px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    border: '1px solid grey',
+    margin: '25px 25px',
 }
 
 const itemGroupChange = (id, group) => {
@@ -84,6 +94,9 @@ const Test = () => (
                     ONLY ONE
                 </div>
             </DragItem>
+            <div style={itemStyles}>
+                NOT DRAGGABLE
+            </div>
         </DropGroup>
     </div>
 );

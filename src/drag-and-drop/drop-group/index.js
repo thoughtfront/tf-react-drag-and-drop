@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import withStore from '../../hoc/withStore';
 import PropTypes from 'prop-types';
 import * as actions from '../../redux/actions';
+import DragItem from '../drag-item';
 
 const mapDispatchToProps = dispatch => ({
     registerGroup: groupName => dispatch(actions.registerGroup(groupName)),
@@ -26,6 +27,7 @@ class DropGroup extends React.Component {
         super(props);
         const { groupName, registerGroup, registerItem, children } = props;
         registerGroup(groupName);
+
         if (Array.isArray(children)) children.forEach( child => registerItem(child, groupName));
         else registerItem(children, groupName);
     }
@@ -37,7 +39,7 @@ class DropGroup extends React.Component {
 
     onDragStart = (event, child) => {
         const { groupName, setDraggingItem } = this.props;
-        this.props.setDraggingItem(child, groupName);
+        setDraggingItem(child, groupName);
     }
 
     onDragOver = event => {
@@ -54,9 +56,10 @@ class DropGroup extends React.Component {
     }
 
     getRenderedChildren = () => {
-        const { registeredItems, style } = this.props;
+        const { registeredItems } = this.props;
         // Map children to new components containing the onDragStart callback
         return !!registeredItems ? React.Children.map(registeredItems, child => {
+            if (child.type !== DragItem) return child;
             return {
                 ...child,
                 props: {

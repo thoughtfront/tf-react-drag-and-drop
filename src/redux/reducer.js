@@ -12,7 +12,6 @@ export default (state=initState, action) => {
 
     switch(action.type) {
         case constants.REGISTER_GROUP: {
-            let groups;
             // Groups need to be uniq so throw warning if already exists and to NOT
             // change existing values
             if (state.groups.includes(action.payload)) {
@@ -32,7 +31,6 @@ export default (state=initState, action) => {
                     [action.payload]: [],
                 }
             }
-            break;
         }
 
         case constants.REGISTER_ITEM: {
@@ -103,6 +101,4 @@ export default (state=initState, action) => {
 
         default: return {...state};
     }
-
-    return {...state};
 }

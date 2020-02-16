@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 class DragItem extends React.Component {
 
     render() {
-        const { children, style, test, onDragStart, uniqueId } = this.props;
+        const { children, onDragStart } = this.props;
 
         return (
             <div
