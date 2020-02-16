@@ -1,6 +1,7 @@
 import React from 'react';
 import { DropGroup, DragItem } from '../../src/drag-and-drop';
 import DragAndDrop from '../../src';
+import Toggle from './components/toggle';
 
 const wrapper = {
     display: 'flex',
@@ -46,7 +47,7 @@ const Test = () => (
         >
             <DragItem uniqueId={'1'} onGroupChange={itemGroupChange}>
                 <div style={dragItemStyles}>
-                    TEST
+                    <Toggle />
                 </div>
             </DragItem>
             <DragItem uniqueId={'2'} onGroupChange={itemGroupChange}>
