@@ -1,7 +1,7 @@
-import DropContainer from './drop-container';
+import DropGroup from './drop-group';
 import DragItem from './drag-item';
 
 export {
-    DropContainer,
+    DropGroup,
     DragItem,
 }

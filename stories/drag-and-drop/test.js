@@ -1,5 +1,5 @@
 import React from 'react';
-import { DropContainer, DragItem } from '../../src/drag-and-drop';
+import { DropGroup, DragItem } from '../../src/drag-and-drop';
 import DragAndDrop from '../../src';
 
 const wrapper = {
@@ -24,9 +24,9 @@ const dragItemStyles = {
 
 const Test = () => (
     <div style={wrapper}>
-        <DropContainer
+        <DropGroup
             style={dropContainerStyles}
-            dropGroup='Group1'
+            groupName='Group1'
         >
             <DragItem uniqueId={'1'}>
                 <div style={dragItemStyles}>
@@ -43,10 +43,10 @@ const Test = () => (
                     Dude
                 </div>
             </DragItem>
-        </DropContainer>
-        <DropContainer
+        </DropGroup>
+        <DropGroup
             style={dropContainerStyles}
-            dropGroup='Group2'
+            groupName='Group2'
         >
             <DragItem uniqueId={'4'}>
                 <div style={dragItemStyles}>
@@ -68,7 +68,17 @@ const Test = () => (
                     Person
                 </div>
             </DragItem>
-        </DropContainer>
+        </DropGroup>
+        <DropGroup
+            style={dropContainerStyles}
+            groupName='Group3'
+        >
+            <DragItem uniqueId={'1'}>
+                <div style={dragItemStyles}>
+                    ONLY ONE
+                </div>
+            </DragItem>
+        </DropGroup>
     </div>
 );
 

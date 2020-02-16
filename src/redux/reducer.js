@@ -4,7 +4,8 @@ import * as errors from '../utils/error';
 const initState = {
     groups: [],
     groupItems: {},
-    itemGroups: {},
+    draggingItem: null,
+    originalGroup: null,
 };
 
 export default (state=initState, action) => {
@@ -61,6 +62,15 @@ export default (state=initState, action) => {
                     ...state.groups.slice(groupIndex+1),
                 ],
                 groupItems,
+            }
+        }
+
+        case constants.SET_DRAGGING_ITEM: {
+            const { draggingItem, originalGroup } = action.payload;
+            return {
+                ...state,
+                draggingItem,
+                originalGroup,
             }
         }
 
