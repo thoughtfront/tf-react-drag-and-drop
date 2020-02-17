@@ -1,14 +1,23 @@
 import React, { useState } from 'react';
 
-export default function Toggle(props) {
-    const [on, setOn] = useState(props.on);
+const styles = {
+    minHeight: '100px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    border: '1px solid grey',
+    margin: '25px 25px',
+}
+
+export default function Toggle(props={}) {
+    const [on, setOn] = useState(props.isOn);
     return (
-        <div>
+        <div style={styles}>
             <button
                 type='button'
                 onClick={ () => {
                     setOn(!on);
-                    props.onChange(!on);
+                    !!props.onChange && props.onChange(!on);
                 }}
             >
                 CLICK
