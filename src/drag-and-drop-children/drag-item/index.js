@@ -2,10 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class DragItem extends React.Component {
-    constructor(props) {
-        super(props);
-        console.warn('constructor for', props.uniqueId);
-    }
 
     render() {
         const { children, onDragStart } = this.props;

@@ -1,8 +1,8 @@
 import React from 'react';
-import TestStory from './test';
+import WithChildrenStory from './with-children';
 
 export default {
     title: 'Drag and Drop',
 }
 
-export const Test = TestStory;
+export const Test = WithChildrenStory;

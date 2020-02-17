@@ -1,7 +1,7 @@
-import * as DnD from './drag-and-drop';
+import * as DragAndDropChildren from './drag-and-drop-children';
 
 const DragAndDrop = {
-    ...DnD,
+    DragAndDropChildren,
 }
 
 export default DragAndDrop;
