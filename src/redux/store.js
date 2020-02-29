@@ -1,3 +1,4 @@
+import React from 'react';
 import { createStore, applyMiddleware } from "redux";
 import reduxLogger from "redux-logger";
 import reducer from "./reducer";
@@ -9,3 +10,5 @@ const store = createStore(reducer, applyMiddleware(
 ));
 
 export default store;
+
+export const DndContext = React.createContext();

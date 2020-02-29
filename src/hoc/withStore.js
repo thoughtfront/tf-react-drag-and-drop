@@ -1,19 +1,18 @@
 import React from 'react';
-import store from '../redux/store';
+import store, { DndContext } from '../redux/store';
 import { Provider } from 'react-redux';
 
 export default Component => {
-    return class extends React.Component {
-        render() {
-            const passThruProps = {
-                ...this.props,
-            };
+    return function withStore(props) {
+        const passThruProps = {
+            ...props,
+            context: DndContext,
+        };
 
-            return (
-                <Provider store={store}>
-                    <Component {...passThruProps} />
-                </Provider>
-            );
-        }
+        return (
+            <Provider store={store} context={DndContext}>
+                <Component {...passThruProps} />
+            </Provider>
+        );
     }
 }

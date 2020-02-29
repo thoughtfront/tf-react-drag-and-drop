@@ -1,7 +1,10 @@
-import * as DragAndDropChildren from './drag-and-drop-children';
+import * as DnDChildren from './drag-and-drop-children';
+import * as DnDTest from './drag-and-drop-test';
 
-const DragAndDrop = {
+export const DragAndDropChildren = {...DnDChildren};
+export const DragAndDropTest = {...DnDTest};
+
+export default {
     DragAndDropChildren,
+    DragAndDropTest,
 }
-
-export default DragAndDrop;

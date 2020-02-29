@@ -4,6 +4,7 @@ import withStore from '../../hoc/withStore';
 import PropTypes from 'prop-types';
 import * as actions from '../../redux/actions';
 import DragItem from '../drag-item';
+import { DndContext } from '../../redux/store';
 
 const mapDispatchToProps = dispatch => ({
     registerGroup: groupName => dispatch(actions.registerGroup(groupName)),
@@ -90,4 +91,9 @@ DropGroup.propTypes = {
     groupName: PropTypes.string.isRequired,
 }
 
-export default withStore(connect(mapStateToProps, mapDispatchToProps)(DropGroup));
+export default withStore(connect(
+    mapStateToProps,
+    mapDispatchToProps,
+    null,
+    { context: DndContext },
+)(DropGroup));
